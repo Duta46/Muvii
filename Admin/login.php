@@ -46,3 +46,19 @@ include "koneksi.php";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<?php
+if(isset($_POST['submit'])) {
+$user = $_POST['uname'];
+$pwd = $_POST['pwd']; 
+$query = mysqli_query($koneksi, "SELECT * FROM admin WHERE uname = '$user' and pwd = '$pwd' ");
+$row = mysqli_num_rows($query);
+
+if($row == 1) {
+  $_SESSION['loginsuccesfull'] = 1;
+  echo "<script>alert('Logged in Succesfully'); window.location.href='index.php';</script>";
+}else{
+  echo "<script>alert('Check your id and pass')</script>";
+}
+}
+?>
