@@ -56,9 +56,9 @@ $row = mysqli_num_rows($query);
 
 if($row == 1) {
   $_SESSION['loginsuccesfull'] = 1;
-  echo "<script>alert('Logged in Succesfully'); window.location.href='index.php';</script>";
+  echo "<script>alert('Login telah berhasil'); window.location.href='index.php';</script>";
 }else{
-  echo "<script>alert('Check your id and pass')</script>";
+  echo "<script>alert('Username atau password yang anda masukkan salah. Login Gagal !!!')</script>";
 }
 }
 ?>
